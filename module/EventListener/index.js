@@ -6,7 +6,7 @@
  * email : 610558983@qq.com
  * github : https://github.com/Dmedu
  */
-class events{
+class EventListener{
     constructor(){
         this.obj = {};
     }
@@ -15,7 +15,7 @@ class events{
      * @param { string } name 要注册的监听器名称
      * @param { function } fn 监听的函数
      */
-    static on = async (name,fn) => {
+    on = (name,fn) => {
         if(typeof fn === 'function'){
             if(!this.obj[name]){
                 this.obj[name] = [];
@@ -31,7 +31,7 @@ class events{
      * @param { string } name 已注册的监听器名称
      * @param { any } value 注册函数接受的参数
      */
-    static emit = (name,value) => {
+    emit = (name,value) => {
         if(this.obj[name]){
             this.obj[name].map((fn,index,arr)=>{
                 fn(value);
@@ -42,4 +42,4 @@ class events{
     }
 }
 
-export default events;
+export default new EventListener()

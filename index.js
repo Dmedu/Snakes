@@ -1,5 +1,5 @@
 // 事件监听器
-import Events from './module/Event'
+import EventListener from './module/Event'
 export default {
-    Events
+    EventListener
 }
